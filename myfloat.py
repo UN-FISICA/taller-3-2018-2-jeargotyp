@@ -1,7 +1,4 @@
-
 # coding: utf-8
-
-# In[16]:
 
 def cnd(a):
     inte=int(a//1)
@@ -156,14 +153,42 @@ def resta1(x,y):
     return abs(x-y)
 
 def imprimir(a):
-    e,d=a
-    r=""
-    for i in range(len(e)):
-        r=r+str(e[i])  
-    r=r+"."
-    for i in d:
-        r=r+str(i)
-    return r 
+    sig=''
+    if a[0]==['+'] or a[0]==[]:
+        sig+='+'
+        a[0].pop()
+        e,d=a[1],a[2]
+        r=''
+        for i in range(len(e)):
+            r=r+str(e[i])
+        r=r+'.'
+        for i in d:
+            r=r+str(i)
+        r=sig+r
+        return r
+    elif a[0]==['-']:
+        sig+='-'
+        a[0].pop()
+        e,d=a[1],a[2]
+        r=''
+        for i in range(len(e)):
+            r=r+str(e[i])
+        r=r+'.'
+        for i in d:
+            r=r+str(i)
+        r=sig+r
+        return r
+    
+    else:
+        e,d=a
+        r=""
+        for i in range(len(e)):
+            r=r+str(e[i])  
+        r=r+"."
+        for i in d:
+            r=r+str(i)
+        return r
+        
 
 def imp(x):
     r=''
@@ -211,7 +236,7 @@ def division(a,b):
     else:
         for i in range(0,mn):
             q.append(0)
-        
+    #precision = parametro opcional    
     precision=29    
     for j in range(0,(len(cca))-len(ccb)+precision):  
         dib=int(imp(k)/imp(ccb))
@@ -388,8 +413,7 @@ class MyFloat:
             x=MyFloat(suma(self.pi,other))
         
         return x
-        
-        
+    
     def __rsub__(self,other):
         if type(other)==int or type(other)==float:
             other=cnd(other)
@@ -423,32 +447,21 @@ class MyFloat:
     def __ne__(self,other):
         if comparacion(self.pi,other)==False:
             return 0
-    def __getitem__(self, key):
-        return self.pi[key]
-    #def __setitem__(self, key):
-    #self.pi.bricksId[key] = pi
-        
-        
-        
-    
+    def __getitem__(self, iterador):
+        return self.pi[iterador]
+
+
 if __name__ == "__main__":
     # Escribir aca el codigo para calcular pi. Al finalizar el calculo solo
     # debe imprimir el valor de pi, sin otros textos ni nada
     x=0
-    for m in range(0,10000):
+    for m in range(0,100000):
         if m%2==0:
             x=x+4/(2*MyFloat(m)+1)   
         else:
-            x=x-4/(2*MyFloat(m)+1)
-   
-    print(imprimir(x))
-
-    
-       
-    
-
-
-# In[ ]:
+            x=x-4/(2*MyFloat(m)+1)   
+    pi=imprimir(x)
+    print(pi)
 
 
 
