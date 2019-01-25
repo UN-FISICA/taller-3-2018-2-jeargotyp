@@ -375,6 +375,14 @@ def comparacion(a,b):
         return False
     else:
         return a==b
+def pi(n):
+    x=0
+    for m in range(0,n):
+        if m%2==0:
+            x=x+4/(2*MyFloat(m)+1)   
+        else:
+            x=x-4/(2*MyFloat(m)+1)   
+    return imprimir(x)
 
 class MyFloat:
 
@@ -454,14 +462,7 @@ class MyFloat:
 if __name__ == "__main__":
     # Escribir aca el codigo para calcular pi. Al finalizar el calculo solo
     # debe imprimir el valor de pi, sin otros textos ni nada
-    x=0
-    for m in range(0,100000):
-        if m%2==0:
-            x=x+4/(2*MyFloat(m)+1)   
-        else:
-            x=x-4/(2*MyFloat(m)+1)   
-    pi=imprimir(x)
-    print(pi)
+    print(pi(1000))
 
 
 
