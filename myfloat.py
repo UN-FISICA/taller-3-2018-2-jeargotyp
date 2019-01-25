@@ -243,10 +243,10 @@ def division(a,b):
         div.append(dib)
         qui=resta1(imp(k),dib*imp(ccb))
         qui1=[int(x) for x in str(qui)]
-        añ=fun(qui1,[q[j]]) #lista
-        iqui=imp(añ)
+        am=fun(qui1,[q[j]]) #lista
+        iqui=imp(am)
         q.append(0)
-        k=añ
+        k=am
         
     ent=[]
     if len(a[0])>len(b[0]):
